@@ -1,5 +1,7 @@
 # todoList
 
+rewritten from jQuery: https://github.com/m019m1/todoList
+
 native JS todo list
 
 it's editable
