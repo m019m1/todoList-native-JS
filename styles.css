@@ -1,0 +1,113 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.hidden {
+	display: none;
+}
+.wrapper {
+	resize: horizontal;
+	overflow: auto;
+	display: grid;
+	border: 3px dashed rgb(240, 164, 50);
+	background-color: rgb(255, 254, 211);
+	border-radius: 20px;
+	width: 60%;
+	max-width: 90%;
+	min-height: 220px;
+	margin: 20px auto;
+	min-width: 510px;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 70px 1fr;
+	padding: 10px;
+	grid-column-gap: 10px;
+}
+.instruction {
+	grid-column: 1;
+	grid-row: 1;
+	justify-self: center;
+	align-self: end;
+	margin-bottom: 5px;
+}
+#newTask {
+		height: 100px;
+		align-self: start;
+		border: 2px solid rgb(97, 136, 219);
+		border-radius: 20px;
+		grid-column: 1;
+		grid-row: 2;
+		padding: 10px;
+		text-align: justify;
+		resize: none;
+	}
+	#newTask:focus {
+		outline: none;
+		box-shadow: 0px 0px 5px rgb(172, 195, 245);
+	}
+	#taskListHeader {
+		grid-column: 2;
+		grid-row: 1;
+		margin: 0px 10px 5px 20px;
+		align-self: end;
+		justify-self: center;
+	}
+		.tasksToDo {
+			font-size: 2em;
+			color: rgb(43, 73, 243);
+		}
+	#taskList {
+		list-style-type: none;
+		grid-column: 2;
+		grid-row: 2;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 300px);
+		gap: 10px;
+		align-content: start;
+	}
+		.task, .edit {
+			box-sizing: border-box;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+			background-color:  rgba(43, 243, 60, 0.521);
+			border: 2px solid rgb(91, 177, 83);
+			border-radius: 7px;
+			padding: 5px 30px 5px 10px;
+			position: relative;
+			text-align: justify;
+			min-height: 55px;
+		}
+ 		.edit {
+			outline: none;
+			resize: none;
+			background-color:  rgba(156, 243, 43, 0.521);
+			overflow: clip;
+		}
+		.made {
+			background-color:  rgba(182, 182, 182, 0.521);
+			border: 2px solid rgb(182, 182, 182);
+		}
+			.done {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				width: 20px; 
+				height: 20px;
+				margin: 0;
+			}
+			.close {
+				position: absolute;
+				top: 30px;
+				right: 5px;
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				font-weight: 700;
+				color: rgb(187, 0, 0);
+				font-size: 1em;
+				border-radius: 3px;
+				border: 1px solid rgb(167, 167, 167);
+				outline: none;
+			}
+			.close:disabled {
+				color: rgb(167, 167, 167, 0.5);
+			}
