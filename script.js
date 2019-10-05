@@ -78,10 +78,9 @@ class Task {
 				edit.remove();
 				this._task.classList.toggle('hidden');
 				
-				// it's need to remove event listener ANYWAY,
-				// so we need to call removeEventListener 
-				// instead of call addEventListener with option once == true
-				// (option "once" wouldn't work if button wouldn't pressed)
+				// it's need to remove event listener ANYWAY, even if 'save' button wouldn't pressed.
+				// So we need to call removeEventListener instead of call addEventListener 
+				// with option {once = true} (option "once" wouldn't work if 'save' button wouldn't pressed)
 				save.removeEventListener('click', editTask.bind(this));
 			};
 			function editTask () {
@@ -97,10 +96,10 @@ let tasks = [];
 // do on load
 document.addEventListener('DOMContentLoaded', () => {
 	taskCreator__editor.focus();
-	let tasksNumber = +localStorage['tasksNumber'];
+	const tasksNumber = +localStorage['tasksNumber'];
 	if (!tasksNumber) return;
 	for(let i = 0; i < tasksNumber; i++) {
-		let task = JSON.parse( localStorage[`task${i}`] );
+		const task = JSON.parse( localStorage[`task${i}`] );
 		tasks.push( new Task(task[0], task[1]) );
 	}
 	showCount();
@@ -109,12 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // do before unload
 window.onbeforeunload = () => {
 	tasks.forEach( (task, i) => {
-		let json = JSON.stringify( [ task._textOfTask.innerHTML, task._done] )
+		const json = JSON.stringify( [ task._textOfTask.innerHTML, task._done] )
 		localStorage[`task${i}`] = json;
 	});
 
 	//delete all extra slots in local storage
-	let tasksNumber = +localStorage['tasksNumber'];
+	const tasksNumber = +localStorage['tasksNumber'];
 	for(let i = tasks.length; i < tasksNumber ; i++) {
 		delete localStorage[`task${i}`];
 	}
